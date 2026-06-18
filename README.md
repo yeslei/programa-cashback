@@ -39,7 +39,7 @@ O historico exibido no frontend mostra apenas as consultas do IP que esta acessa
 
 Preencha abaixo com as URLs do seu deploy:
 
-- Frontend Render: `(https://programa-cashback.onrender.com/)`
+- Frontend Render: `https://programa-cashback.onrender.com/`
 - API Railway: `aware-connection-production-f15c.up.railway.app`
 - Banco: Supabase Postgres
 
@@ -157,7 +157,7 @@ Variaveis:
 
 ```env
 DATABASE_URL=string de conexao da supabase
-FRONTEND_URL=(https://programa-cashback.onrender.com/)
+FRONTEND_URL=https://programa-cashback.onrender.com/
 ```
 
 ### Render - Frontend
