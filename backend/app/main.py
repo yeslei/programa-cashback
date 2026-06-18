@@ -7,13 +7,17 @@ from .controllers import router as controllers_router
 
 app = FastAPI(title='Cashback API')
 
-frontend_url = os.getenv('FRONTEND_URL')
 allowed_origins = [
     'http://localhost:4200',
     'http://127.0.0.1:4200',
+    'https://programa-cashback.onrender.com',
 ]
-if frontend_url:
-    allowed_origins.append(frontend_url)
+
+frontend_urls = os.getenv('FRONTEND_URL', '')
+for frontend_url in frontend_urls.split(','):
+    frontend_url = frontend_url.strip().rstrip('/')
+    if frontend_url and frontend_url not in allowed_origins:
+        allowed_origins.append(frontend_url)
 
 app.add_middleware(
     CORSMiddleware,
