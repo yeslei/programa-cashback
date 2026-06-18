@@ -1,0 +1,103 @@
+<main class="page">
+  <section class="panel">
+    <div class="intro">
+      <p class="eyebrow">Programa de cashback</p>
+      <h1>Calculadora simples</h1>
+      <p>
+        Informe o tipo de cliente, o valor da compra e o desconto aplicado para consultar o cashback.
+      </p>
+    </div>
+
+    <form class="form" (ngSubmit)="calculate()">
+      <label>
+        Tipo de cliente
+        <select name="clientType" [(ngModel)]="clientType">
+          <option value="normal">Normal</option>
+          <option value="vip">VIP</option>
+        </select>
+      </label>
+
+      <label>
+        Valor da compra
+        <input
+          name="price"
+          type="number"
+          min="0"
+          step="0.01"
+          [(ngModel)]="price"
+          required
+        />
+      </label>
+
+      <label>
+        Desconto (%)
+        <input
+          name="discountPct"
+          type="number"
+          min="0"
+          max="100"
+          step="0.01"
+          [(ngModel)]="discountPct"
+        />
+      </label>
+
+      <button type="submit" [disabled]="loading">
+        {{ loading ? 'Calculando...' : 'Calcular cashback' }}
+      </button>
+    </form>
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+  </section>
+
+  <section class="result" *ngIf="result">
+    <h2>Resultado</h2>
+    <dl>
+      <div>
+        <dt>Valor final</dt>
+        <dd>{{ formatCurrency(result.final_price) }}</dd>
+      </div>
+      <div>
+        <dt>Cashback base</dt>
+        <dd>{{ formatCurrency(result.base_cashback) }}</dd>
+      </div>
+      <div>
+        <dt>Bonus VIP</dt>
+        <dd>{{ formatCurrency(result.vip_bonus) }}</dd>
+      </div>
+      <div class="total">
+        <dt>Cashback total</dt>
+        <dd>{{ formatCurrency(result.total_cashback) }}</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="history">
+    <div class="section-title">
+      <h2>Historico deste IP</h2>
+      <button type="button" class="secondary" (click)="loadHistory()">Atualizar</button>
+    </div>
+
+    <table *ngIf="history.length; else emptyHistory">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Valor</th>
+          <th>Desconto</th>
+          <th>Cashback</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of history">
+          <td>{{ item.client_type | uppercase }}</td>
+          <td>{{ formatCurrency(item.price) }}</td>
+          <td>{{ item.discount_pct }}%</td>
+          <td>{{ formatCurrency(item.cashback) }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #emptyHistory>
+      <p class="empty">Nenhuma consulta encontrada para este IP.</p>
+    </ng-template>
+  </section>
+</main>

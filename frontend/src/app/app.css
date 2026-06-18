@@ -1,0 +1,172 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  color: #172033;
+}
+
+.panel,
+.result,
+.history {
+  border: 1px solid #d8dee9;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.intro {
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #2563eb;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 8px;
+  font-size: 2rem;
+}
+
+h2 {
+  margin-bottom: 16px;
+  font-size: 1.25rem;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  align-items: end;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-weight: 700;
+}
+
+input,
+select,
+button {
+  min-height: 42px;
+  border-radius: 6px;
+  font: inherit;
+}
+
+input,
+select {
+  border: 1px solid #b7c0cf;
+  padding: 0 12px;
+  background: #ffffff;
+}
+
+button {
+  border: 0;
+  padding: 0 16px;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.secondary {
+  min-height: 36px;
+  background: #eef2ff;
+  color: #1e40af;
+}
+
+.error {
+  margin: 16px 0 0;
+  color: #b42318;
+  font-weight: 700;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+dl div {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+dt {
+  color: #526070;
+  font-size: 0.85rem;
+}
+
+dd {
+  margin: 4px 0 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.total {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-top: 1px solid #e5e7eb;
+  padding: 12px 8px;
+  text-align: left;
+}
+
+th {
+  color: #526070;
+  font-size: 0.85rem;
+}
+
+.empty {
+  margin-bottom: 0;
+  color: #526070;
+}
+
+@media (max-width: 760px) {
+  .form,
+  dl {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+}
