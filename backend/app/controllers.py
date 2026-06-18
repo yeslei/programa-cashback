@@ -14,16 +14,15 @@ def calculate_cashback(payload: schemas.CalculateRequest, request: Request, db: 
 
     price = payload.price
     discount = payload.discount_pct or 0.0
-    is_vip = (client_type == 'vip')
 
     # Calcula cashback
-    result = services.compute_cashback(price=price, discount_pct=discount, is_vip=is_vip)
+    result = services.compute_cashback(price=price, discount_pct=discount, client_type=client_type)
 
     # Pega IP do cliente
     client_ip = request.client.host
 
     # Persiste consulta
-    crud.create_query(db=db, ip=client_ip, client_type=client_type, price=price, discount_pct=discount, is_vip=is_vip, cashback=result['total_cashback'])
+    crud.create_query(db=db, ip=client_ip, client_type=client_type, price=price, discount_pct=discount, cashback=result['total_cashback'])
 
     return schemas.CalculateResponse(
         price=result['price'],

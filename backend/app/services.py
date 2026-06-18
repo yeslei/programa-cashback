@@ -1,15 +1,17 @@
 from typing import Dict
 
 
-def compute_cashback(price: float, discount_pct: float = 0.0, is_vip: bool = False) -> Dict[str, float]:
+def compute_cashback(price: float, discount_pct: float = 0.0, client_type: str = "normal") -> Dict[str, float]:
     if price < 0:
         raise ValueError("O preço deve ser não negativo.")
     if not (0 <= discount_pct <= 100):
         raise ValueError("discount_pct deve estar entre 0 e 100.")
+    if client_type not in ("normal", "vip"):
+        raise ValueError('client_type deve ser "normal" ou "vip".')
 
     final_price = price * (1 - discount_pct / 100)
     base_cashback = 0.05 * final_price
-    vip_bonus = 0.10 * base_cashback if is_vip else 0.0
+    vip_bonus = 0.10 * base_cashback if client_type == "vip" else 0.0
     subtotal = base_cashback + vip_bonus
     if final_price > 500:
         total = subtotal * 2

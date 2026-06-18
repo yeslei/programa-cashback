@@ -17,7 +17,6 @@ interface HistoryItem {
   client_type: string;
   price: number;
   discount_pct: number;
-  is_vip: boolean;
   cashback: number;
   created_at: string;
 }

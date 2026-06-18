@@ -24,7 +24,6 @@ class QueryOut(BaseModel):
     client_type: str
     price: float
     discount_pct: float
-    is_vip: bool
     cashback: float
     created_at: datetime
 

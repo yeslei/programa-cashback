@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime
+from sqlalchemy import Column, Integer, String, Float, DateTime
 from .db import Base
 from datetime import datetime
 
@@ -11,6 +11,5 @@ class Query(Base):
     client_type = Column(String(20), nullable=False)
     price = Column(Float, nullable=False)
     discount_pct = Column(Float, nullable=False)
-    is_vip = Column(Boolean, nullable=False, default=False)
     cashback = Column(Float, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
