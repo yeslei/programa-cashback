@@ -39,8 +39,8 @@ O historico exibido no frontend mostra apenas as consultas do IP que esta acessa
 
 Preencha abaixo com as URLs do seu deploy:
 
-- Frontend Render: `COLOQUE_AQUI_A_URL_DO_RENDER`
-- API Railway: `COLOQUE_AQUI_A_URL_DA_API_NO_RAILWAY`
+- Frontend Render: `(https://programa-cashback.onrender.com/)`
+- API Railway: `aware-connection-production-f15c.up.railway.app`
 - Banco: Supabase Postgres
 
 ## Endpoints da API
@@ -156,8 +156,8 @@ Configuracoes principais:
 Variaveis:
 
 ```env
-DATABASE_URL=COLOQUE_AQUI_A_URL_DO_POSTGRES_SUPABASE
-FRONTEND_URL=COLOQUE_AQUI_A_URL_DO_RENDER
+DATABASE_URL=string de conexao da supabase
+FRONTEND_URL=(https://programa-cashback.onrender.com/)
 ```
 
 ### Render - Frontend
@@ -171,7 +171,7 @@ Configuracoes principais:
 Variavel:
 
 ```env
-BACKEND_URL=COLOQUE_AQUI_A_URL_DA_API_NO_RAILWAY
+BACKEND_URL=aware-connection-production-f15c.up.railway.app
 ```
 
 Durante o build, o script `frontend/scripts/write-env.mjs` gera a configuracao do Angular usando `BACKEND_URL`.
