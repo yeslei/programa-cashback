@@ -2,8 +2,6 @@
 
 Aplicacao simples para calcular cashback e manter historico de consultas por IP.
 
-O projeto foi criado para o desafio Nology - Estagiario de Dev 2026.
-
 ## Funcionamento
 
 O usuario informa:
