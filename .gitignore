@@ -15,3 +15,5 @@ backend/.venv/
 backend/db.sqlite
 
 *.log
+
+frontend/src/environments/environment.generated.ts
